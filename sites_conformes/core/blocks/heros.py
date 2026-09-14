@@ -202,6 +202,7 @@ class HeroBackgroundImageBlock(blocks.StructBlock):
     image = HeroImageBlockWithMask(
         label=_("Hero image"),
     )
+
     background_color = BackgroundColorChoiceBlock(
         label=_("Background color"),
         required=False,
