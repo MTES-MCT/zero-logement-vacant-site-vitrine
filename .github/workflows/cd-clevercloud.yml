@@ -15,9 +15,10 @@ jobs:
     name: Deploy to CleverCloud
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: production
+          fetch-depth: 0
 
       - name: Install clever-tools
         run: npm install -g clever-tools
