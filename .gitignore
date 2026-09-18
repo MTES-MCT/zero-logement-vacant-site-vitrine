@@ -146,6 +146,9 @@ config.json
 cron.json
 temp.json
 
+# clever-tools app-linking config (machine/deploy-target specific)
+.clever.json
+
 # Playwright artifacts
 test-results
 __screenshots__
