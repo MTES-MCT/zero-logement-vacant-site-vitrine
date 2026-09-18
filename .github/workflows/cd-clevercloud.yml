@@ -1,0 +1,31 @@
+name: ☁️ Deploy to CleverCloud
+
+on:
+  push:
+    branches:
+      - production
+
+concurrency:
+  group: cd-clevercloud-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to CleverCloud
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: production
+
+      - name: Install clever-tools
+        run: npm install -g clever-tools
+
+      - name: Link and deploy
+        env:
+          CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
+          CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}
+        run: |
+          clever link app_d0d80d76-a1af-46bb-8af5-16ff04459eaa --org orga_31f13631-abb3-48d2-a58b-24b736f02a9d
+          clever deploy --branch production
