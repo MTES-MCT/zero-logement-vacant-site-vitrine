@@ -146,8 +146,10 @@ config.json
 cron.json
 temp.json
 
-# clever-tools app-linking config (machine/deploy-target specific)
 .clever.json
+# CleverCloud's own cron.json lives in clevercloud/ and is committed,
+# unlike the root-level Scalingo one matched by the "cron.json" rule above
+!clevercloud/cron.json
 
 # Playwright artifacts
 test-results
